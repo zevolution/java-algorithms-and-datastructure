@@ -1,0 +1,27 @@
+.attach_pid*
+/src/target/
+/src/.attach_pid*
+!.mvn/wrapper/maven-wrapper.jar
+
+### sts ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springbeans
+.sts4-cache
+
+### intellij idea ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### netbeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/a
