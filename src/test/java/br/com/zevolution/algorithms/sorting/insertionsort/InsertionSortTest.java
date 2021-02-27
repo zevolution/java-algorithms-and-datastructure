@@ -1,14 +1,11 @@
 package br.com.zevolution.algorithms.sorting.insertionsort;
 
-import static org.junit.Assert.*;
-
-import java.util.Arrays;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.zevolution.algorithms.sorting.insertionsort.Product;
-import br.com.zevolution.algorithms.sorting.insertionsort.InsertionSort;
+import br.com.zevolution.algorithms.sorting.Product;
 
 public class InsertionSortTest {
 

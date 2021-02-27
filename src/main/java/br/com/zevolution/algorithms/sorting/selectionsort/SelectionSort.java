@@ -1,5 +1,7 @@
 package br.com.zevolution.algorithms.sorting.selectionsort;
 
+import br.com.zevolution.algorithms.sorting.Product;
+
 public class SelectionSort {
 	
 	public static Product[] sortingByCheapest(Product[] products, int length) {

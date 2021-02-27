@@ -1,10 +1,11 @@
 package br.com.zevolution.algorithms.sorting.selectionsort;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Test;
+
+import br.com.zevolution.algorithms.sorting.Product;
 
 public class SelectionSortTest {
 
