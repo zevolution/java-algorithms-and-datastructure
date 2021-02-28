@@ -1,10 +1,11 @@
 package br.com.zevolution.algorithms.sorting.insertionsort;
 
 import br.com.zevolution.algorithms.sorting.Product;
+import br.com.zevolution.algorithms.sorting.Sort;
 
-public class InsertionSort {
+public class InsertionSort implements Sort {
 
-	public static Product[] sortingByCheapest(Product[] products, int length) {
+	public Product[] sort(Product[] products, int length) {
 		Product[] array = products.clone();
 		for (int current = 1; current < length; current++) {
 			int beingAnalyzed = current;

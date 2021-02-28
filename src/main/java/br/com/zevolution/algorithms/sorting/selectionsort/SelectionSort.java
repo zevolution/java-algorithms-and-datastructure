@@ -1,10 +1,11 @@
 package br.com.zevolution.algorithms.sorting.selectionsort;
 
 import br.com.zevolution.algorithms.sorting.Product;
+import br.com.zevolution.algorithms.sorting.Sort;
 
-public class SelectionSort {
+public class SelectionSort implements Sort {
 	
-	public static Product[] sortingByCheapest(Product[] products, int length) {
+	public Product[] sort(Product[] products, int length) {
 		Product[] array = products.clone();
 		for (int current = 0; current < length - 1; current++) {
 			int cheapest = getCheapest(array, current, length - 1);
@@ -18,7 +19,7 @@ public class SelectionSort {
 		return array;
 	}
 
-	private static int getCheapest(Product[] products, int beginIndex, int endIndex) {
+	private int getCheapest(Product[] products, int beginIndex, int endIndex) {
 		int cheapest = beginIndex;
 		for (int current = beginIndex; current <= endIndex; current++) {
 			if (products[current].getPrice() < products[cheapest].getPrice()) {
