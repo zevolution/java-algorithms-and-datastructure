@@ -19,4 +19,22 @@ public class Product {
 		return this.description;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+
+		if (this.getClass() != obj.getClass())
+		    return false;
+
+		Product other = Product.class.cast(obj);
+		return other.toString().equals(this.toString()) &&
+				other.getPrice() == this.getPrice();
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
 }
