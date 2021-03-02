@@ -6,34 +6,37 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 
-		// Two previously ordered parts
+		// Unsorted array
 		Product[] products = {
-				new Product("product2", 4),
 				new Product("product3", 5),
-				new Product("product5", 8),
+				new Product("product2", 4),
 				new Product("product6", 9),
-				new Product("product1", 3),
+				new Product("product5", 8),
 				new Product("product4", 6),
-				new Product("product7", 9.3),
-				new Product("product8", 10)
+				new Product("product1", 3),
+				new Product("product8", 10),
+				new Product("product7", 9.3)
 		};
 
-		Product[] array = sort(products);
+		mergeSort(products, 0, 1, 2);
+		mergeSort(products, 2, 3, 4);
+		mergeSort(products, 4, 5, 6);
+		mergeSort(products, 6, 7, 8);
+		mergeSort(products, 0, 4, 8);
+//		array = mergeSort(array, 0, 2, 4);
 
-
-		System.out.println(Arrays.toString(array));
+		System.out.println(Arrays.toString(products));
 
 	}
 
-	private static Product[] sort(Product[] products) {
-		int medium = products.length / 2;
-		Product[] array = new Product[products.length];
+	private static void mergeSort(Product[] products, int low, int medium, int high) {
+		Product[] array = new Product[high-low];
 
 		int current = 0;
-		int left = 0;
+		int left = low;
 		int right = medium;
 
-		while (left < medium && right < products.length) {
+		while (left < medium && right < high) {
 			if (products[left].getPrice() < products[right].getPrice()) {
 				array[current] = products[left];
 				left++;
@@ -44,7 +47,22 @@ public class MergeSort {
 			current++;
 		}
 
-		return array;
+		while (left < medium) {
+			array[current] = products[left];
+			left++;
+			current++;
+		}
+
+		while (right < high) {
+			array[current] = products[right];
+			right++;
+			current++;
+		}
+
+		for (int i = 0; i < current; i++ ) {
+			products[low + i] = array[i];
+		}
+
 	}
 
 }
