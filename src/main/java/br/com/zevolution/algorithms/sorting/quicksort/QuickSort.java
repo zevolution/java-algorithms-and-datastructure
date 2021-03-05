@@ -16,25 +16,33 @@ public class QuickSort {
 				new Product("Notebook", 3500)
 		};
 		
-		int cheapests = getCheapests(products, products.length);
-		System.out.println(String.format("There are %d cheaper products.", cheapests));
+		quickSort(products, 0, products.length);
 		
 		System.out.println(Arrays.toString(products));
 	}
 
-	private static int getCheapests(Product[] products, int length) {
-		int cheapest = 0;
+	private static void quickSort(Product[] products, int start, int end) {
+		int length = end - start; 
+		if (length > 1) {
+			int pivot = partitionProducts(products, start, end);
+			quickSort(products, start, pivot);
+			quickSort(products, pivot + 1, end);
+		}
+	}
+
+	private static int partitionProducts(Product[] products, int start, int end) {
+		int cheapest = start;
 		
-		Product pivotProduct = products[length - 1];
-		for (int current = 0; current < length - 1; current++) {
+		Product pivotProduct = products[end - 1];
+		for (int current = start; current < end - 1; current++) {
 			Product currentProduct = products[current];
-			if (currentProduct.getPrice() < pivotProduct.getPrice()) {
+			if (currentProduct.getPrice() <= pivotProduct.getPrice()) {
 				swap(products, current, cheapest);
 				cheapest++;
 			}
 		}
 		
-		swap(products, length - 1, cheapest);
+		swap(products, end - 1, cheapest);
 		
 		return cheapest;
 	}
