@@ -1,5 +1,7 @@
 package br.com.zevolution.algorithms.sorting.quicksort;
 
+import java.util.Arrays;
+
 import br.com.zevolution.algorithms.sorting.Product;
 
 public class QuickSort {
@@ -14,22 +16,34 @@ public class QuickSort {
 				new Product("Notebook", 3500)
 		};
 		
-		getCheapests(products, products.length);
+		int cheapests = getCheapests(products, products.length);
+		System.out.println(String.format("There are %d cheaper products.", cheapests));
 		
+		System.out.println(Arrays.toString(products));
 	}
 
-	private static void getCheapests(Product[] products, int length) {
+	private static int getCheapests(Product[] products, int length) {
 		int cheapest = 0;
 		
+		Product pivotProduct = products[length - 1];
 		for (int current = 0; current < length - 1; current++) {
 			Product currentProduct = products[current];
-			if (currentProduct.getPrice() < products[length - 1].getPrice()) {
+			if (currentProduct.getPrice() < pivotProduct.getPrice()) {
+				swap(products, current, cheapest);
 				cheapest++;
 			}
 		}
 		
-		System.out.println(String.format("There are %d cheaper products.", cheapest));
+		swap(products, length - 1, cheapest);
 		
+		return cheapest;
+	}
+
+	private static void swap(Product[] products, int from, int to) {
+		Product productFrom = products[from];
+		Product productTo = products[to];
+		products[from] = productTo;
+		products[to] = productFrom;
 	}
 
 }
