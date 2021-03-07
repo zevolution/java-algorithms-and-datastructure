@@ -1,6 +1,7 @@
 .attach_pid*
 /src/target/
 /src/.attach_pid*
+/target
 !.mvn/wrapper/maven-wrapper.jar
 
 ### sts ###
