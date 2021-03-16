@@ -58,6 +58,33 @@ public class CustomLinkedList {
 		}
 	}
 
+	public void remove(Object element) {
+		Node current = this.first;
+		Node previous = null;
+
+		if (current.getElement() == element) {
+			this.first = current.getNext();
+			current = null;
+			this.totalElements--;
+			return;
+		}
+
+		while (current != null) {
+			if (current.getElement() == element) {
+				break;
+			}
+
+			previous = current;
+			current = current.getNext();
+		}
+
+		if (current == null) return;
+
+		previous.setNext(current.getNext());
+		current = null;
+		this.totalElements--;
+	}
+
 	public Object get(int position) {
 		return this.getNode(position).getElement();
 	}

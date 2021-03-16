@@ -93,4 +93,18 @@ public class CustomLinkedListTest {
 		linkedList.removeFirst();
 	}	
 
+	@Test
+	public void should_RemoveMiddleElement() {
+		CustomLinkedList linkedList = new CustomLinkedList();
+		linkedList.add("Bia");
+		linkedList.add("Lucas");
+		linkedList.add("Laura");
+
+		linkedList.remove("Lucas");
+
+		assertEquals(2, linkedList.size());
+		assertEquals("Bia", linkedList.get(0));
+		assertEquals("Laura", linkedList.get(1));
+	}
+
 }
